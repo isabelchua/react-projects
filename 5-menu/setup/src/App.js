@@ -7,6 +7,11 @@ function App() {
 	const [menuItems, setMenuItems] = useState(items);
 	const [categories, setCategories] = useState([]);
 
+	cosnt filterItems = (category) => {
+		const newItems = items.filter((item) => item.category === category)
+		setMenuItems(newItems)
+	}
+
 	return (
 		<main>
 			<section className="menu section">
@@ -15,7 +20,7 @@ function App() {
 					<div className="underline"></div>
 				</div>
 			</section>
-			<Categories />
+			<Categories filterItems ={filterItems}/>
 			<Menu items={menuItems} />
 		</main>
 	);
