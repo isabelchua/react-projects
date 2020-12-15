@@ -3,7 +3,19 @@ import React from "react";
 const Categories = ({ filterItems, categories }) => {
 	return (
 		<div className="btn-container">
-			<button className="filter-btn" onClick={() => filterItems("all")}>
+			{categories.map((category, index) => {
+				return (
+					<button
+						type="button"
+						className="filter-btn"
+						key={index}
+						onClick={() => filterItems(category)}
+					>
+						{category}
+					</button>
+				);
+			})}
+			{/* <button className="filter-btn" onClick={() => filterItems("all")}>
 				all
 			</button>
 			<button
@@ -11,7 +23,7 @@ const Categories = ({ filterItems, categories }) => {
 				onClick={() => filterItems("breakfast")}
 			>
 				breakfast
-			</button>
+			</button> */}
 		</div>
 	);
 };
