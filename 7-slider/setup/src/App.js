@@ -21,6 +21,12 @@ function App() {
 					if (personIndex === index) {
 						position = "activeSlide";
 					}
+					if (
+						personIndex === index - 1 ||
+						(index === 0 && personIndex === people.length - 1)
+					) {
+						position = "lastSlide";
+					}
 					return (
 						<article className={position} key={id}>
 							<img src={image} alt={name} className="person-img" />
@@ -31,11 +37,11 @@ function App() {
 						</article>
 					);
 				})}
-				<button className="prev">
+				<button className="prev" onClick={() => setIndex(index - 1)}>
 					<FiChevronLeft />
 				</button>
 				<button className="prev">
-					<FiChevronLeft />
+					<FiChevronLeft onClick={() => setIndex(index + 1)} />
 				</button>
 			</div>
 		</section>
