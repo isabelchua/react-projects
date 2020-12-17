@@ -4,9 +4,9 @@ import SingleColor from "./SingleColor";
 import Values from "values.js";
 
 function App() {
-	const [color, setColor] = useState("#5456a3");
+	const [color, setColor] = useState("");
 	const [error, setError] = useState(false);
-	const [list, setList] = useState([]);
+	const [list, setList] = useState(new Values("#5456a3").all(5));
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -29,7 +29,6 @@ function App() {
 						type="text"
 						value={color}
 						onChange={e => setColor(e.target.value)}
-						placeholder="#f15025"
 						className={`${error ? "error" : null}`}
 					/>
 					<button className="btn" type="submit">
