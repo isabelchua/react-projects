@@ -5,7 +5,7 @@ import Alert from "./Alert";
 function App() {
 	const [name, setName] = useState("");
 	const [list, setList] = useState([]);
-	const [isEditing, setEditing] = useState(false);
+	const [isEditing, setIsEditing] = useState(false);
 
 	const [editID, setEditId] = useState(null);
 	const [alert, setAlert] = useState({
@@ -22,6 +22,18 @@ function App() {
 			//setAlert({show: true, msg: 'please enter value', type: 'danger'})
 		} else if (name && isEditing) {
 			// deal with edit
+			setList(
+				list.map(item => {
+					if (item.id === editID) {
+						return { ...item, title: name };
+					}
+					return item;
+				})
+			);
+			setName("");
+			setEditId(null);
+			setIsEditing(false);
+			showAlert(true, "success", "value changed");
 		} else {
 			showAlert(true, "success", "item to the list");
 			// show alert
@@ -42,6 +54,13 @@ function App() {
 	const removeItem = id => {
 		showAlert(true, "danger", "item removed");
 		setList(list.filter(item => item.id !== id));
+	};
+
+	const editItem = id => {
+		const specificItem = list.find(item => item.id === id);
+		setIsEditing(true);
+		setEditId(id);
+		setName(specificItem.title);
 	};
 	return (
 		<section className="section-center">
@@ -65,7 +84,7 @@ function App() {
 			</form>
 			{list.length > 0 && (
 				<div className="grocery">
-					<List items={list} removeItem={removeItem} />
+					<List items={list} removeItem={removeItem} editItem={editItem} />
 					<button className="clear-btn" onClick={clearList}>
 						{" "}
 						clear items
