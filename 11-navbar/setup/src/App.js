@@ -4,7 +4,6 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<h2>navbar project setup</h2>
 		</>
 	);
 }
