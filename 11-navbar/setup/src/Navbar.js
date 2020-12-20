@@ -5,6 +5,17 @@ import logo from "./logo.svg";
 
 const Navbar = () => {
 	const [showLinks, setShowLinks] = useState();
+	const linksContainerRef = useRef(null);
+	const linksRef = useRef(null);
+	useEffect(() => {
+		const linksHeight = linksRef.current.getBoundingClientRect().height;
+		console.log(linksContainerRef.current.getBoundingClientRect());
+		if (showLinks) {
+			linksContainerRef.current.style.height = `${linksHeight}px`;
+		} else {
+			linksContainerRef.current.style.height = "0px";
+		}
+	}, [showLinks]);
 	return (
 		<nav>
 			<div className="nav-center">
@@ -17,32 +28,28 @@ const Navbar = () => {
 						<FaBars />
 					</button>
 				</div>
-				{showLinks && (
-					<div className="links-container show-container">
-						<ul className="links">
-							{/* <li>
-							<a href="#">home</a>
-						</li>
-						<li>
-							<a href="#">about</a>
-						</li>
-						<li>
-							<a href="#">contact</a>
-						</li>
-						<li>
-							<a href="#">products</a>
-						</li> */}
-							{links.map(link => {
-								const { id, url, text } = link;
-								return (
-									<li key={id}>
-										<a href={url}>{text}</a>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				)}
+				{/* {showLinks && ( */}
+				<div
+					className="links-container"
+					ref={linksContainerRef}
+					// {`${
+					// 	showLinks
+					// 		? "links-container show-container"
+					// 		: "links-container"
+					// }`}
+				>
+					<ul className="links" ref={linksRef}>
+						{links.map(link => {
+							const { id, url, text } = link;
+							return (
+								<li key={id}>
+									<a href={url}>{text}</a>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+				{/* )} */}
 				<ul className="social-icons">
 					{/* <li>
 						<a href="https://www.twitter.com">
