@@ -1,14 +1,31 @@
-import React from 'react'
-import Loading from '../components/Loading'
-import { useParams, Link } from 'react-router-dom'
-const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
+import React from "react";
+import Loading from "../components/Loading";
+import { useParams, Link } from "react-router-dom";
+const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
 const SingleCocktail = () => {
-  return (
-    <div>
-      <h2>single cocktail page </h2>
-    </div>
-  )
-}
+	const { id } = useParams();
+	const [loading, setLoading] = React.useState(false);
+	const [cocktail, setCocktail] = React.useState(null);
 
-export default SingleCocktail
+	React.useEffect(() => {
+		setLoading(true);
+		async function getCocktail() {
+			try {
+				const response = await fetch(`${url}${id}`);
+				const data = await response.json();
+				console.log(data);
+			} catch (error) {}
+			getCocktail();
+		}
+	}, [id]);
+
+	console.log(id);
+	return (
+		<div>
+			<h2>{id}</h2>
+		</div>
+	);
+};
+
+export default SingleCocktail;

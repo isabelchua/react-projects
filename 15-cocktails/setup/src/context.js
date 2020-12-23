@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
 	const [searchTerm, setSearchTerm] = useState("a");
 	const [cocktails, setCocktails] = useState([]);
 
-	const fetchDrinks = async () => {
+	const fetchDrinks = useCallback(async () => {
 		setLoading(true);
 
 		try {
@@ -20,14 +20,14 @@ const AppProvider = ({ children }) => {
 			if (drinks) {
 				const newCocktails = drinks.map(item => {
 					const {
-						isDrink,
+						idDrink,
 						strDrink,
 						strDrinkThumb,
 						strAlcoholic,
 						strGlass
 					} = item;
 					return {
-						id: isDrink,
+						id: idDrink,
 						name: strDrink,
 						image: strDrinkThumb,
 						info: strAlcoholic,
@@ -43,11 +43,11 @@ const AppProvider = ({ children }) => {
 			console.log(error);
 			setLoading(false);
 		}
-	};
+	}, [searchTerm]);
 
 	useEffect(() => {
 		fetchDrinks();
-	}, [searchTerm]);
+	}, [searchTerm, fetchDrinks]);
 
 	return (
 		<AppContext.Provider
