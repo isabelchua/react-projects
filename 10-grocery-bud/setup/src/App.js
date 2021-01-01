@@ -45,6 +45,7 @@ function App() {
 			setEditId(null);
 			setIsEditing(false);
 			showAlert(true, "success", "value changed");
+			setEditColor("");
 		} else {
 			showAlert(true, "success", "item to the list");
 			// show alert
@@ -82,15 +83,15 @@ function App() {
 
 	return (
 		<section className="section-center">
-			<form className="grocery-form" onSubmit={handleSubmit}>
+			<form className="todo-form" onSubmit={handleSubmit}>
 				{alert.show && (
 					<Alert {...alert} removeAlert={showAlert} list={list} />
 				)}
-				<h3>grocery bud</h3>
+				<h3>Notes</h3>
 				<div className="form-control">
 					<input
 						type="text"
-						className={`grocery input-field ${editColor}`}
+						className={`todo input-field ${editColor}`}
 						placeholder="e.g. buy dogfood"
 						value={name}
 						onChange={e => setName(e.target.value)}
@@ -101,7 +102,7 @@ function App() {
 				</div>
 			</form>
 			{list.length > 0 && (
-				<div className="grocery">
+				<div className="todo">
 					<List items={list} removeItem={removeItem} editItem={editItem} />
 					<button className="clear-btn" onClick={clearList}>
 						{" "}
