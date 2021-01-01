@@ -210,10 +210,11 @@ Grocery List
 	display: flex;
 	justify-content: center;
 }
+
 .grocery {
 	padding: 0.25rem;
 	padding-left: 1rem;
-	background: var(--grey-10);
+	background: #f8f8f8;
 	border-top-left-radius: var(--radius);
 	border-bottom-left-radius: var(--radius);
 	border-color: transparent;
@@ -221,6 +222,11 @@ Grocery List
 	flex: 1 0 auto;
 	color: var(--grey-5);
 }
+
+.input-field {
+	background: #f5ff69;
+}
+
 .grocery::placeholder {
 	font-family: var(--ff-secondary);
 	color: var(--grey-5);
@@ -312,4 +318,8 @@ Grocery List
 }
 .clear-btn:hover {
 	color: var(--red-dark);
+}
+
+.highlight {
+	background-color: #721c24;
 }

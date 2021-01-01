@@ -23,6 +23,8 @@ function App() {
 		type: ""
 	});
 
+	const [editColor, setEditColor] = useState("");
+
 	const handleSubmit = e => {
 		e.preventDefault();
 		if (!name) {
@@ -67,6 +69,8 @@ function App() {
 
 	const editItem = id => {
 		const specificItem = list.find(item => item.id === id);
+		showAlert(true, "success", "edit item");
+		setEditColor("highlight");
 		setIsEditing(true);
 		setEditId(id);
 		setName(specificItem.title);
@@ -86,8 +90,8 @@ function App() {
 				<div className="form-control">
 					<input
 						type="text"
-						className="grocery"
-						placeholder="e.g. eggs"
+						className={`grocery input-field ${editColor}`}
+						placeholder="e.g. buy dogfood"
 						value={name}
 						onChange={e => setName(e.target.value)}
 					/>
