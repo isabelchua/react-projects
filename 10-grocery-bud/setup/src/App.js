@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Alert from "./Alert";
+import { BiPlusMedical } from "react-icons/bi";
+import { FaEdit } from "react-icons/fa";
 
 const getLocalStorage = () => {
 	let list = localStorage.getItem("list");
@@ -97,7 +99,7 @@ function App() {
 						onChange={e => setName(e.target.value)}
 					/>
 					<button type="submit" className="submit-btn">
-						{isEditing ? "edit" : "submit"}
+						{isEditing ? <FaEdit /> : <BiPlusMedical />}
 					</button>
 				</div>
 			</form>

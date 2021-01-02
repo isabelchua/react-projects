@@ -236,15 +236,14 @@ todo List
 	flex: 0 0 5rem;
 	display: grid;
 	align-items: center;
-	padding: 0.25rem;
+	padding: 10px 30px;
 	text-transform: capitalize;
-	letter-spacing: 2px;
 	border-top-right-radius: var(--radius);
 	border-bottom-right-radius: var(--radius);
 	cursor: pointer;
 	content: var(--primary-5);
 	transition: var(--transition);
-	font-size: 0.85rem;
+	font-size: 22px;
 }
 .submit-btn:hover {
 	background: var(--primary-5);
@@ -263,15 +262,13 @@ todo List
 	transition: var(--transition);
 	padding: 0.25rem 1rem;
 	border-radius: var(--radius);
-	text-transform: capitalize;
 	border-bottom: 1px solid rgb(255, 255, 255);
 }
 .todo-item:hover {
-	color: var(--grey-5);
-	background: var(--grey-10);
+	background: rgb(255, 255, 255);
 }
 .todo-item:hover .title {
-	color: var(--grey-5);
+	color: #1b639e;
 }
 .title {
 	margin-bottom: 0;
@@ -309,7 +306,7 @@ todo List
 	display: grid;
 	align-items: center;
 	background: transparent;
-	border-color: #721c24;
+	border-color: #f38590;
 	color: var(--grey-1);
 	margin: 0 auto;
 	font-size: 0.85rem;
