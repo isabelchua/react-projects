@@ -9,7 +9,31 @@ const List = ({ items, removeItem, editItem }) => {
 
 	return (
 		<div className="todo-list">
-			{items.map(item => {
+			{todo.map(item => {
+				const { id, task } = item;
+				return (
+					<article key={id} className="todo-item">
+						<p className="title">{task}</p>
+						<div className="btn-container">
+							<button
+								type="button"
+								className="edit-btn"
+								onClick={() => editItem(id)}
+							>
+								<FaEdit />
+							</button>
+							<button
+								type="button"
+								className="delete-btn"
+								onClick={() => removeItem(id)}
+							>
+								<FaTrash />
+							</button>
+						</div>
+					</article>
+				);
+			})}
+			{/* {items.map(item => {
 				const { id, title } = item;
 				return (
 					<article key={id} className="todo-item">
@@ -32,7 +56,7 @@ const List = ({ items, removeItem, editItem }) => {
 						</div>
 					</article>
 				);
-			})}
+			})} */}
 		</div>
 	);
 };
