@@ -6,6 +6,7 @@ const Alert = ({ type, msg, removeAlert, list }) => {
 			removeAlert();
 		}, 3000);
 		return () => clearTimeout(timeout);
+		// eslint-disable-next-line
 	}, [list]);
 	return <p className={`alert alert-${type}`}>{msg}</p>;
 };

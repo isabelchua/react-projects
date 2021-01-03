@@ -15,10 +15,13 @@ const getLocalStorage = () => {
 
 function App() {
 	const [name, setName] = useState("");
-	const [list, setList] = useState(getLocalStorage());
+
 	const [isEditing, setIsEditing] = useState(false);
 
 	const [editID, setEditId] = useState(null);
+
+	const [list, setList] = useState(getLocalStorage());
+
 	const [alert, setAlert] = useState({
 		show: false,
 		msg: "",
@@ -26,6 +29,28 @@ function App() {
 	});
 
 	const [editColor, setEditColor] = useState("");
+
+	const showAlert = (show = false, type = "", msg = "") => {
+		setAlert({ show, type, msg });
+	};
+	const clearList = () => {
+		showAlert(true, "danger", "empty list");
+		setList([]);
+	};
+
+	const removeItem = id => {
+		showAlert(true, "danger", "item removed");
+		setList(list.filter(item => item.id !== id));
+	};
+
+	const editItem = id => {
+		const specificItem = list.find(item => item.id === id);
+		showAlert(true, "success", "edit item");
+		setEditColor("highlight");
+		setIsEditing(true);
+		setEditId(id);
+		setName(specificItem.title);
+	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -55,28 +80,6 @@ function App() {
 			setList([...list, newItem]);
 			setName("");
 		}
-	};
-
-	const showAlert = (show = false, type = "", msg = "") => {
-		setAlert({ show, type, msg });
-	};
-	const clearList = () => {
-		showAlert(true, "danger", "empty list");
-		setList([]);
-	};
-
-	const removeItem = id => {
-		showAlert(true, "danger", "item removed");
-		setList(list.filter(item => item.id !== id));
-	};
-
-	const editItem = id => {
-		const specificItem = list.find(item => item.id === id);
-		showAlert(true, "success", "edit item");
-		setEditColor("highlight");
-		setIsEditing(true);
-		setEditId(id);
-		setName(specificItem.title);
 	};
 
 	useEffect(() => {
