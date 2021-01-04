@@ -5,17 +5,10 @@ export const todoSlice = createSlice({
 	// initialState: {
 	// 	todo: "eat"
 	// },
-	initialState: [
-		{
-			id: 1,
-			task: "gym"
-		},
-
-		{
-			id: 2,
-			task: "John Doe"
-		}
-	],
+	initialState: {
+		1: { id: 1, task: "gym" },
+		2: { id: 2, task: "eat" }
+	},
 	reducers: {
 		setTodo: (state, action) => {
 			// Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -24,13 +17,15 @@ export const todoSlice = createSlice({
 			// immutable state based off those changes
 			state.todo = action.payload.todo;
 		},
-		logout: state => {
-			state.todo = null;
+		deleteTodo: (state, action) => {
+			console.log(action.payload.id);
+			console.log(state);
+			//state.filter(item => item.id !== action.payload.id);
 		}
 	}
 });
 
-export const { setTodo, logout } = todoSlice.actions;
+export const { setTodo, logout, deleteTodo } = todoSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -1,15 +1,15 @@
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { setUser, logout, selectTodo } from "./todo/todoSlice";
+import { selectTodo } from "./todo/todoSlice";
 import { useSelector } from "react-redux";
 
 const List = ({ items, removeItem, editItem }) => {
 	const todo = useSelector(selectTodo);
-	console.log(todo);
+	console.log(Object.entries(todo));
 
 	return (
 		<div className="todo-list">
-			{todo.map(item => {
+			{Object.values(todo).map(item => {
 				const { id, task } = item;
 				return (
 					<article key={id} className="todo-item">

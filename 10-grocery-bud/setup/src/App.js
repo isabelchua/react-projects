@@ -3,6 +3,9 @@ import List from "./List";
 import Alert from "./Alert";
 import { BiPlusMedical } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
+import { deleteTodo } from "./todo/todoSlice";
+
+import { useDispatch } from "react-redux";
 
 const getLocalStorage = () => {
 	let list = localStorage.getItem("list");
@@ -14,6 +17,8 @@ const getLocalStorage = () => {
 };
 
 function App() {
+	const dispatch = useDispatch();
+
 	const [name, setName] = useState("");
 
 	const [isEditing, setIsEditing] = useState(false);
@@ -40,7 +45,9 @@ function App() {
 
 	const removeItem = id => {
 		showAlert(true, "danger", "item removed");
-		setList(list.filter(item => item.id !== id));
+
+		dispatch(deleteTodo({ id: id }));
+		//setList(list.filter(item => item.id !== id));
 	};
 
 	const editItem = id => {
