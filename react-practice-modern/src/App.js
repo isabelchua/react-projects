@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import CoursesList from "./CoursesList";
 import Search from "./Search";
 
@@ -32,8 +32,20 @@ const courses_data = [
 	}
 ];
 
+const coursesReducer = (state, action) => {
+	switch (action.type) {
+		case "SET_COURSES":
+			return action.payload;
+		case "REMOVE_COURSE":
+			return state.filter(course => action.payload.id !== course.id);
+		default:
+			throw new Error();
+	}
+};
+
 const App = () => {
-	const [courses, setCourses] = useState([]);
+	//const [courses, setCourses] = useState([]);
+	const [courses, dispatchCourses] = useReducer(coursesReducer, []);
 
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -45,6 +57,13 @@ const App = () => {
 		//console.log(e.target.value);
 		setSearchText(e.target.value);
 		localStorage.setItem("searchText", e.target.value);
+	};
+
+	const handleRemoveCourse = course => {
+		dispatchCourses({
+			type: "REMOVE_COURSE",
+			payload: course
+		});
 	};
 
 	const getCoursesAsync = () =>
@@ -60,7 +79,11 @@ const App = () => {
 		setIsLoading(true);
 
 		getCoursesAsync().then(result => {
-			setCourses(result.courses);
+			//setCourses(result.courses);
+			dispatchCourses({
+				type: "SET_COURSES",
+				payload: result.courses
+			});
 			setIsLoading(false);
 		});
 	}, []);
@@ -102,7 +125,10 @@ const App = () => {
 			{isLoading ? (
 				<p>Loading courses...</p>
 			) : (
-				<CoursesList courses={filteredCourses} />
+				<CoursesList
+					courses={filteredCourses}
+					handleRemoveCourse={handleRemoveCourse}
+				/>
 			)}
 		</div>
 	);
