@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CoursesList from "./CoursesList";
 import Search from "./Search";
 
-const courses = [
+const courses_data = [
 	{
 		id: 1,
 		title: "asdaa",
@@ -33,7 +33,10 @@ const courses = [
 ];
 
 const App = () => {
-	// const [courses];
+	const [courses, setCourses] = useState([]);
+
+	const [isLoading, setIsLoading] = useState(false);
+
 	const [searchText, setSearchText] = useState(
 		localStorage.getItem("searchText") || ""
 	);
@@ -44,9 +47,23 @@ const App = () => {
 		localStorage.setItem("searchText", e.target.value);
 	};
 
+	const getCoursesAsync = () =>
+		new Promise(resolve =>
+			setTimeout(() => resolve({ courses: courses_data }), 2000)
+		);
+
 	useEffect(() => {
 		localStorage.setItem("searchText", searchText);
 	}, [searchText]);
+
+	useEffect(() => {
+		setIsLoading(true);
+
+		getCoursesAsync().then(result => {
+			setCourses(result.courses);
+			setIsLoading(false);
+		});
+	}, []);
 
 	const filteredCourses = courses.filter(course => {
 		return (
@@ -81,7 +98,12 @@ const App = () => {
 			<h1>Sample List</h1>
 			<hr />
 			<Search value={searchText} onSearch={handleSearch} />
-			<CoursesList courses={filteredCourses} />
+
+			{isLoading ? (
+				<p>Loading courses...</p>
+			) : (
+				<CoursesList courses={filteredCourses} />
+			)}
 		</div>
 	);
 };
