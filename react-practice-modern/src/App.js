@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CoursesList from "./CoursesList";
 import Search from "./Search";
 
 const courses = [
 	{
 		id: 1,
-		title: "asd",
+		title: "asdaa",
 		author: "aaa",
 		hourrs_video: 22,
 		number_of_lectures: 200,
@@ -20,16 +20,33 @@ const courses = [
 		number_of_lectures: 200,
 		rating: 4.7,
 		url: "aaa"
+	},
+	{
+		id: 3,
+		title: "dfdaaa",
+		author: "faaa",
+		hourrs_video: 22,
+		number_of_lectures: 200,
+		rating: 4.7,
+		url: "aaa"
 	}
 ];
 
 const App = () => {
-	const [searchText, setSearchText] = useState("");
+	// const [courses];
+	const [searchText, setSearchText] = useState(
+		localStorage.getItem("searchText") || ""
+	);
 
 	const handleSearch = e => {
 		//console.log(e.target.value);
 		setSearchText(e.target.value);
+		localStorage.setItem("searchText", e.target.value);
 	};
+
+	useEffect(() => {
+		localStorage.setItem("searchText", searchText);
+	}, [searchText]);
 
 	const filteredCourses = courses.filter(course => {
 		return (
@@ -37,11 +54,11 @@ const App = () => {
 		);
 	});
 
-	const handleKeyPress = e => {
-		if (e.key === "Enter") {
-			console.log("Enter key press " + e.target.value);
-		}
-	};
+	// const handleKeyPress = e => {
+	// 	if (e.key === "Enter") {
+	// 		console.log("Enter key press " + e.target.value);
+	// 	}
+	// };
 
 	const greeting = "Hello World!";
 
@@ -63,7 +80,7 @@ const App = () => {
 
 			<h1>Sample List</h1>
 			<hr />
-			<Search onSearch={handleSearch} />
+			<Search value={searchText} onSearch={handleSearch} />
 			<CoursesList courses={filteredCourses} />
 		</div>
 	);
