@@ -25,6 +25,13 @@ const App = () => {
 	const handleSearchInputChange = e => {
 		console.log(e.target.value);
 	};
+
+	const handleKeyPress = e => {
+		if (e.key === "Enter") {
+			console.log("Enter key press " + e.target.value);
+		}
+	};
+
 	const greeting = "Hello World!";
 
 	const greetings = {
@@ -50,6 +57,7 @@ const App = () => {
 				id="searchInput"
 				type="text"
 				onChange={handleSearchInputChange}
+				onKeyPress={handleKeyPress}
 			/>
 			<CoursesList courses={courses} />
 		</div>
