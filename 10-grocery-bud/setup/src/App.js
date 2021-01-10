@@ -3,7 +3,7 @@ import List from "./List";
 import Alert from "./Alert";
 import { BiPlusMedical } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
-import { deleteTodo } from "./todo/todoSlice";
+import { deleteTodo, editTodo } from "./todo/todoSlice";
 
 import { useDispatch } from "react-redux";
 
@@ -51,10 +51,11 @@ function App() {
 	};
 
 	const editItem = id => {
-		const specificItem = list.find(item => item.id === id);
+		const specificItem = Object.values(todo).find(item => item.id === id);
 		showAlert(true, "success", "edit item");
 		setEditColor("highlight");
 		setIsEditing(true);
+		//dispatch(editTodo({ id: id }));
 		setEditId(id);
 		setName(specificItem.title);
 	};

@@ -10,13 +10,24 @@ export const todoSlice = createSlice({
 		2: { id: 2, task: "eat" }
 	},
 	reducers: {
+		addTodo: state => {
+			//add state
+		},
 		deleteTodo: (state, action) => {
 			delete state[action.payload.id];
+		},
+		editTodo: (state, action) => {
+			state.map(item => {
+				if (item.id === action.payload.id) {
+					return { ...item, title: action.payload.name };
+				}
+				return item;
+			});
 		}
 	}
 });
 
-export const { setTodo, logout, deleteTodo } = todoSlice.actions;
+export const { setTodo, logout, deleteTodo, editTodo } = todoSlice.actions;
 
 // state.todo = state.todo.filter(item => item.id !== action.payload.id);
 //initialState: [{ id: 1, task: "gym" }, { id: 2, task: "eat" }],
