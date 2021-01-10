@@ -3,7 +3,8 @@ import List from "./List";
 import Alert from "./Alert";
 import { BiPlusMedical } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
-import { deleteTodo, editTodo } from "./todo/todoSlice";
+import { deleteTodo, editTodo, selectTodo } from "./todo/todoSlice";
+import { useSelector } from "react-redux";
 
 import { useDispatch } from "react-redux";
 
@@ -17,6 +18,7 @@ const getLocalStorage = () => {
 };
 
 function App() {
+	const todo = useSelector(selectTodo);
 	const dispatch = useDispatch();
 
 	const [name, setName] = useState("");
@@ -43,21 +45,22 @@ function App() {
 		setList([]);
 	};
 
-	const removeItem = id => {
-		showAlert(true, "danger", "item removed");
-
-		dispatch(deleteTodo({ id: id }));
-		//setList(list.filter(item => item.id !== id));
-	};
-
 	const editItem = id => {
+		//console.log(list);
 		const specificItem = Object.values(todo).find(item => item.id === id);
 		showAlert(true, "success", "edit item");
 		setEditColor("highlight");
 		setIsEditing(true);
 		//dispatch(editTodo({ id: id }));
 		setEditId(id);
-		setName(specificItem.title);
+		setName(specificItem.task);
+	};
+
+	const removeItem = id => {
+		showAlert(true, "danger", "item removed");
+
+		dispatch(deleteTodo({ id: id }));
+		//setList(list.filter(item => item.id !== id));
 	};
 
 	const handleSubmit = e => {

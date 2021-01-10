@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const List = ({ items, removeItem, editItem }) => {
 	const todo = useSelector(selectTodo);
-	console.log(Object.entries(todo));
+	//console.log(Object.entries(todo));
 
 	return (
 		<div className="todo-list">
