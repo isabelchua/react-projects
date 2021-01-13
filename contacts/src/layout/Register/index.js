@@ -8,7 +8,7 @@ import {
 } from "semantic-ui-react";
 import Header from "../../components/Header";
 
-function RegisterUI() {
+function RegisterUI({ form: { onChange, form, registerFormValid } }) {
 	return (
 		<div>
 			<Header />
@@ -19,19 +19,37 @@ function RegisterUI() {
 					<Segment>
 						<Form>
 							<Form.Field>
-								<Form.Input placeholder="Username" label="Username" />
+								<Form.Input
+									value={form.username || ""}
+									onChange={onChange}
+									name="username"
+									placeholder="Username"
+									label="Username"
+								/>
 							</Form.Field>
 							<Form.Field>
 								<Form.Input
+									value={form.firstName || ""}
+									onChange={onChange}
+									name="firstName"
 									placeholder="First Name"
 									label="First Name"
 								/>
 							</Form.Field>
 							<Form.Field>
-								<Form.Input placeholder="Last Name" label="Last Name" />
+								<Form.Input
+									value={form.lastName || ""}
+									onChange={onChange}
+									name="lastName"
+									placeholder="Last Name"
+									label="Last Name"
+								/>
 							</Form.Field>
 							<Form.Field>
 								<Form.Input
+									value={form.email || ""}
+									onChange={onChange}
+									name="email"
 									type="email"
 									placeholder="Email"
 									label="Email"
@@ -39,13 +57,21 @@ function RegisterUI() {
 							</Form.Field>
 							<Form.Field>
 								<Form.Input
+									value={form.password || ""}
+									onChange={onChange}
+									name="password"
 									type="password"
 									placeholder="Password"
 									label="Password"
 								/>
 							</Form.Field>
 
-							<Button fluid primary type="submit">
+							<Button
+								disabled={registerFormValid}
+								fluid
+								primary
+								type="submit"
+							>
 								Submit
 							</Button>
 						</Form>
