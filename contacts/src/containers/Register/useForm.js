@@ -28,5 +28,5 @@ export default () => {
 	const onSubmit = form => {
 		register(form)(authDispatch);
 	};
-	return { form, onChange, registerFormValid, onSubmit };
+	return { form, onChange, loading, registerFormValid, onSubmit };
 };

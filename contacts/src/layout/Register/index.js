@@ -8,7 +8,9 @@ import {
 } from "semantic-ui-react";
 import Header from "../../components/Header";
 
-function RegisterUI({ form: { onChange, form, registerFormValid } }) {
+function RegisterUI({
+	form: { onChange, form, registerFormValid, onSubmit, loading }
+}) {
 	return (
 		<div>
 			<Header />
@@ -67,8 +69,10 @@ function RegisterUI({ form: { onChange, form, registerFormValid } }) {
 							</Form.Field>
 
 							<Button
-								disabled={registerFormValid}
+								onClick={onSubmit}
+								disabled={registerFormValid || loading}
 								fluid
+								loading={loading}
 								primary
 								type="submit"
 							>
