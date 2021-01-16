@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 //import { Header } from "semantic-ui-react";
 import Header from "../../components/Header";
+import { GlobalContext } from "../../context/Provider";
 
 const ContactsContainer = () => {
+	const context = useContext(GlobalContext);
+	console.log("context", context);
+
 	return (
 		<div>
 			<Header />
