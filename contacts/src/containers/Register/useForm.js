@@ -8,7 +8,7 @@ export default () => {
 	const {
 		authDispatch,
 		authState: {
-			auth: { loading }
+			auth: { loading, error, data }
 		}
 	} = useContext(GlobalContext);
 
@@ -16,7 +16,9 @@ export default () => {
 		setForm({ ...form, [name]: value });
 	};
 
-	console.log("authstate", loading);
+	console.log("loading", loading);
+	console.log("error", error);
+	console.log("DATA", data);
 
 	const registerFormValid =
 		!form.username?.length ||
