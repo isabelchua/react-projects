@@ -5,7 +5,6 @@ import { GlobalContext } from "../../context/Provider";
 
 export default () => {
 	const [form, setForm] = useState({});
-	const [fieldErrors, setFieldErrors] = useState({});
 
 	const history = useHistory();
 
@@ -20,34 +19,14 @@ export default () => {
 		setForm({ ...form, [name]: value });
 	};
 
-	useEffect(() => {
-		if (error) {
-			for (const item in error) {
-				setFieldErrors({ ...fieldErrors, [item]: error[item][0] });
-			}
-		}
-	}, [error]);
-
-	useEffect(() => {
-		if (data) {
-			history.push("/auth/login");
-		}
-	}, [data]);
-
 	console.log("loading", loading);
 	console.log("error", error);
 	console.log("DATA", data);
 
-	const registerFormValid =
-		!form.username?.length ||
-		!form.firstName?.length ||
-		!form.lastName?.length ||
-		!form.password?.length ||
-		!form.email?.length;
+	const loginFormValid = !form.username?.length || !form.password?.length;
 
 	const onSubmit = () => {
-		setFieldErrors({});
-		register(form)(authDispatch);
+		// register(form)(authDispatch);
 	};
-	return { form, onChange, loading, fieldErrors, registerFormValid, onSubmit };
+	return { form, onChange, loading, fieldErrors, loginFormValid, onSubmit };
 };

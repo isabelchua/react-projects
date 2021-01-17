@@ -9,7 +9,7 @@ import {
 import Header from "../../components/Header";
 
 function RegisterUI({
-	form: { onChange, form, registerFormValid, onSubmit, loading }
+	form: { onChange, form, registerFormValid, onSubmit, loading, fieldErrors }
 }) {
 	return (
 		<div>
@@ -27,6 +27,12 @@ function RegisterUI({
 									name="username"
 									placeholder="Username"
 									label="Username"
+									error={
+										fieldErrors.username && {
+											content: fieldErrors.username,
+											pointing: "below"
+										}
+									}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -36,6 +42,12 @@ function RegisterUI({
 									name="firstName"
 									placeholder="First Name"
 									label="First Name"
+									error={
+										fieldErrors.first_name && {
+											content: fieldErrors.first_name,
+											pointing: "below"
+										}
+									}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -45,6 +57,12 @@ function RegisterUI({
 									name="lastName"
 									placeholder="Last Name"
 									label="Last Name"
+									error={
+										fieldErrors.last_name && {
+											content: fieldErrors.last_name,
+											pointing: "below"
+										}
+									}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -55,6 +73,12 @@ function RegisterUI({
 									type="email"
 									placeholder="Email"
 									label="Email"
+									error={
+										fieldErrors.email && {
+											content: fieldErrors.email,
+											pointing: "below"
+										}
+									}
 								/>
 							</Form.Field>
 							<Form.Field>
@@ -65,6 +89,12 @@ function RegisterUI({
 									type="password"
 									placeholder="Password"
 									label="Password"
+									error={
+										fieldErrors.password && {
+											content: fieldErrors.password,
+											pointing: "below"
+										}
+									}
 								/>
 							</Form.Field>
 

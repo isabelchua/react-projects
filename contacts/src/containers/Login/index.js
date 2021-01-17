@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import LoginUI from "../../layout/Login";
+import useForm from "../Register/useForm";
+
 const LoginContainer = () => {
-	return (
-		<div>
-			<h1>Login</h1>
-			<Link to="/auth/register">Register</Link>
-		</div>
-	);
+	return <LoginUI form={useForm()} />;
 };
 
 export default LoginContainer;
