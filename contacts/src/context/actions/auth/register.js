@@ -32,7 +32,7 @@ export const register = ({
 		.catch(err =>
 			dispatch({
 				type: REGISTER_ERROR,
-				payload: err.response.data
+				payload: err.response.data ? err.response.data : "Could not connect"
 			})
 		);
 };
