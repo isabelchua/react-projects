@@ -32,5 +32,13 @@ export default () => {
 		// register(form)(authDispatch);
 		login(form)(authDispatch);
 	};
+
+	useEffect(() => {
+		if (data) {
+			if (data.user) {
+				history.push("/");
+			}
+		}
+	});
 	return { form, onChange, loading, error, loginFormValid, onSubmit };
 };

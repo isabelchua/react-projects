@@ -14,12 +14,13 @@ export const login = ({ password, username }) => dispatch => {
 			password,
 			username
 		})
-		.then(res =>
+		.then(res => {
+			localStorage.token = res.data.token;
 			dispatch({
 				type: LOGIN_SUCCESS,
 				payload: res.data
-			})
-		)
+			});
+		})
 		.catch(err =>
 			dispatch({
 				type: LOGIN_ERROR,
