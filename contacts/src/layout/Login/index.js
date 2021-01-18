@@ -21,7 +21,7 @@ function LoginUI({
 					<SemanticHeader>Login Here</SemanticHeader>
 					<Segment>
 						<Form>
-							<Message content={error?.detail} negative></Message>
+							{error && <Message content={error?.detail} negative />}
 							<Form.Field>
 								<Form.Input
 									value={form.username || ""}
