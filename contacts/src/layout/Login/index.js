@@ -4,12 +4,13 @@ import {
 	Form,
 	Grid,
 	Header as SemanticHeader,
+	Message,
 	Segment
 } from "semantic-ui-react";
 import Header from "../../components/Header";
 
 function LoginUI({
-	form: { onChange, form, loginFormValid, onSubmit, loading }
+	form: { onChange, form, loginFormValid, error, onSubmit, loading }
 }) {
 	return (
 		<div>
@@ -20,6 +21,7 @@ function LoginUI({
 					<SemanticHeader>Login Here</SemanticHeader>
 					<Segment>
 						<Form>
+							<Message content={error?.detail} negative></Message>
 							<Form.Field>
 								<Form.Input
 									value={form.username || ""}

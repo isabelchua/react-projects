@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { login } from "../../context/actions/auth/login";
 //import { register } from "../../context/actions/auth/register";
 import { GlobalContext } from "../../context/Provider";
 
@@ -29,6 +30,7 @@ export default () => {
 
 	const onSubmit = () => {
 		// register(form)(authDispatch);
+		login(form)(authDispatch);
 	};
-	return { form, onChange, loading, loginFormValid, onSubmit };
+	return { form, onChange, loading, error, loginFormValid, onSubmit };
 };
