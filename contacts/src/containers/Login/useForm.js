@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { register } from "../../context/actions/auth/register";
+//import { register } from "../../context/actions/auth/register";
 import { GlobalContext } from "../../context/Provider";
 
 export default () => {
@@ -19,14 +19,16 @@ export default () => {
 		setForm({ ...form, [name]: value });
 	};
 
-	console.log("loading", loading);
-	console.log("error", error);
-	console.log("DATA", data);
+	console.log("form", form);
+
+	//console.log("loading", loading);
+	//console.log("error", error);
+	//console.log("DATA", data);
 
 	const loginFormValid = !form.username?.length || !form.password?.length;
 
 	const onSubmit = () => {
 		// register(form)(authDispatch);
 	};
-	return { form, onChange, loading, fieldErrors, loginFormValid, onSubmit };
+	return { form, onChange, loading, loginFormValid, onSubmit };
 };
