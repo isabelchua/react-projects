@@ -15,7 +15,9 @@ function getTodos() {
 	// 	.then(res => showOutput(res))
 	// 	.catch(err => console.error(err));
 	axios
-		.get("https://jsonplaceholder.typicode.com/todos?_limit=5")
+		.get("https://jsonplaceholder.typicode.com/todos?_limit=5", {
+			timeout: 5000
+		})
 		.then(res => showOutput(res))
 		.catch(err => console.error(err));
 }
@@ -117,7 +119,11 @@ function transformResponse() {
 function errorHandling() {
 	//console.log("Error Handling");
 	axios
-		.get("https://jsonplaceholder.typicode.com/todoss")
+		.get("https://jsonplaceholder.typicode.com/todoss", {
+			validateStatus: function (status) {
+				return status < 500; //Reject only if status is greater or equal to 500
+			}
+		})
 		.then(res => showOutput(res))
 		.catch(err => {
 			if (err.response) {
