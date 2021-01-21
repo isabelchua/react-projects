@@ -1,20 +1,39 @@
 // GET REQUEST
 function getTodos() {
 	//console.log("GET Request");
-	axios({
-		method: "get",
-		url: "https://jsonplaceholder.typicode.com/todos",
-		params: {
-			_limit: 5
-		}
-	})
+	// axios({
+	// 	method: "get",
+	// 	url: "https://jsonplaceholder.typicode.com/todos",
+	// 	params: {
+	// 		_limit: 5
+	// 	}
+	// })
+	// 	.then(res => showOutput(res))
+	// 	.catch(err => console.error(err));
+	axios
+		.get("https://jsonplaceholder.typicode.com/todos?_limit=5")
 		.then(res => showOutput(res))
 		.catch(err => console.error(err));
 }
 
 // POST REQUEST
 function addTodo() {
-	console.log("POST Request");
+	//console.log("POST Request");
+	// axios({
+	// 	method: "post",
+	// 	url: "https://jsonplaceholder.typicode.com/todos",
+	// 	data: {
+	// 		title: "New Todo",
+	// 		completed: false
+	// 	}
+	// })
+	axios
+		.post("https://jsonplaceholder.typicode.com/todos", {
+			title: "new Todo",
+			completed: false
+		})
+		.then(res => showOutput(res))
+		.catch(err => console.error(err));
 }
 
 // PUT/PATCH REQUEST
