@@ -10,20 +10,35 @@ function App() {
 	const [tasks, setTasks] = useState([]);
 
 	useEffect(() => {
-		const fetchTasks = async () => {
-			const res = await fetch("http://localhost:5000/tasks");
-			const data = await res.json();
-
-			console.log(data);
+		const getTasks = async () => {
+			const tasksFromServer = await fetchTasks();
+			setTasks(tasksFromServer);
 		};
-		fetchTasks();
+		getTasks();
 	}, []);
 
+	// FetchTasks
+	const fetchTasks = async () => {
+		const res = await fetch("http://localhost:5000/tasks");
+		const data = await res.json();
+
+		//console.log(data);
+		return data;
+	};
+
 	// Delete Task
-	const deleteTask = id => {
-		//console.log("delete", id);
+	const deleteTask = async id => {
+		await fetch(`http://localhost:5000/tasks/${id}`, {
+			method: "DELETE"
+		});
 		setTasks(tasks.filter(task => task.id !== id));
 	};
+
+	// const deleteTask = id => {
+	// 	//console.log("delete", id);
+
+	// 	setTasks(tasks.filter(task => task.id !== id));
+	// };
 
 	// Toggle Reminder
 	const toggleReminder = id => {
