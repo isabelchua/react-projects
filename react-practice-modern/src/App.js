@@ -43,8 +43,36 @@ const coursesReducer = (state, action) => {
 	}
 };
 
+// const coursesReducer = (state, action) => {
+// 	switch (action.type) {
+// 		case "FETCH_COURSE_START":
+// 			return {
+// 				...state,
+// 				isLoading: true
+// 			};
+// 		case "FETCH_COURSES_SUCCESS":
+// 			return {
+// 				...state,
+// 				isLoading: false,
+// 				data: action.payload
+// 			};
+// 		case "REMOVE_COURSE":
+// 			return {
+// 				...state,
+// 				data: state.filter(course => action.payload.id !== course.id)
+// 			};
+// 		default:
+// 			throw new Error();
+// 	}
+// };
+
 const App = () => {
-	//const [courses, setCourses] = useState([]);
+	//const STRAPI_API_ENDPOINT = "http://localhost:1337/courses";
+
+	// const [courses, dispatchCourses] = useReducer(coursesReducer, {
+	// 	data: [],
+	// 	isLoading: false
+	// });
 	const [courses, dispatchCourses] = useReducer(coursesReducer, []);
 
 	const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +105,6 @@ const App = () => {
 
 	useEffect(() => {
 		setIsLoading(true);
-
 		getCoursesAsync().then(result => {
 			//setCourses(result.courses);
 			dispatchCourses({
