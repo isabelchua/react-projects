@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
 	return (
 		<div className="App">
@@ -19,13 +21,19 @@ function App() {
 }
 
 const Folder = props => {
-	const { name, isOpen, children } = props;
+	const [isOpen, setIsOpen] = useState(false);
+	console.log(isOpen);
+	console.log(setIsOpen);
+	const { name, children } = props;
 	console.log(props);
 	// console.log(props);
 	// const borderStyle = { border: "2px solid pink" };
+	const handleClick = () => {
+		console.log("clicked");
+	};
 	return (
 		<div>
-			<h2>{name}</h2>
+			<span onClick={handleClick}>{name}</span>
 
 			<h3>{props.food}</h3>
 			<div style={{ marginLeft: "19px" }}>{isOpen ? children : null}</div>
