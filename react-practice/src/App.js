@@ -29,7 +29,8 @@ const Folder = props => {
 	// console.log(props);
 	// const borderStyle = { border: "2px solid pink" };
 	const handleClick = () => {
-		console.log("clicked");
+		//console.log("clicked");
+		setIsOpen(!isOpen);
 	};
 	return (
 		<div>
