@@ -1,29 +1,34 @@
 function App() {
 	return (
 		<div className="App">
-			<Folder name="Desktop">
-				<h3>some stuff</h3>
-				<h4>other things</h4>
+			<Folder name="Desktop" isOpen={false}>
+				<Folder name="Music">
+					<File name="all_star.mp4" />
+					<File name="express_file.mp4" />
+				</Folder>
+
 				<File name="cats.jpg" />
 				<File name="dogs.jpg" />
 			</Folder>
-			<Folder name="hello 2" food="cake" drink="coffee" />
+			{/* <Folder name="hello 2" food="cake" drink="coffee" /> */}
 			<Folder name="Applications" />
 
-			<Folder name="hi" />
+			{/* <Folder name="hi" /> */}
 		</div>
 	);
 }
 
 const Folder = props => {
+	const { name, isOpen, children } = props;
 	console.log(props);
-	const name = "this name";
-	const borderStyle = { border: "2px solid pink" };
+	// console.log(props);
+	// const borderStyle = { border: "2px solid pink" };
 	return (
-		<div style={borderStyle}>
-			<h2>{props.name}</h2>
+		<div>
+			<h2>{name}</h2>
+
 			<h3>{props.food}</h3>
-			{props.children}
+			<div style={{ marginLeft: "19px" }}>{isOpen ? children : null}</div>
 		</div>
 	);
 };
