@@ -35,7 +35,8 @@ const Folder = props => {
 	return (
 		<div>
 			<span onClick={handleClick}>
-				<i className="folder icon"></i>
+				<i className="blue folder icon"></i>
+				<i className="caret down icon"></i>
 			</span>
 			{name}
 			<h3>{props.food}</h3>
