@@ -25,6 +25,8 @@ const Folder = props => {
 	console.log(isOpen);
 	console.log(setIsOpen);
 	const { name, children } = props;
+
+	const direction = isOpen ? "down" : "right";
 	console.log(props);
 	// console.log(props);
 	// const borderStyle = { border: "2px solid pink" };
@@ -36,7 +38,7 @@ const Folder = props => {
 		<div>
 			<span onClick={handleClick}>
 				<i className="blue folder icon"></i>
-				<i className="caret down icon"></i>
+				<i className={`caret ${direction} icon`}></i>
 			</span>
 			{name}
 			<h3>{props.food}</h3>
