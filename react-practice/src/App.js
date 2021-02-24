@@ -10,7 +10,7 @@ function App() {
 				</Folder>
 
 				<File name="cats.jpg" />
-				<File name="dogs.jpg" />
+				<File name="dogs.png" />
 			</Folder>
 			{/* <Folder name="hello 2" food="cake" drink="coffee" /> */}
 			<Folder name="Applications" />
@@ -48,7 +48,20 @@ const Folder = props => {
 };
 
 const File = props => {
-	return <h5>{props.name}</h5>;
+	const { name } = props;
+	const fileExtension = name.split(".")[1];
+	const fileIcons = {
+		mp4: "headphones",
+		jpg: "file image",
+		png: "file image outline"
+	};
+
+	return (
+		<div>
+			<i className={`${fileIcons[fileExtension]} icon`}></i>
+			{name}
+		</div>
+	);
 };
 
 export default App;
