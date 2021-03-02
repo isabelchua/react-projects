@@ -1,7 +1,12 @@
 import "./App.css";
+import CountButton from "./components/CountButton";
 
 function App() {
-	return <div className="App">hi</div>;
+	return (
+		<div className="App">
+			<CountButton />
+		</div>
+	);
 }
 
 export default App;
