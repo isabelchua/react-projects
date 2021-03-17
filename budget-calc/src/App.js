@@ -11,20 +11,18 @@ const initialExpenses = [
 	{ id: uuidv4(), charge: "credit card bill", amount: 1200 }
 ];
 
-//console.log(initialExpenses);
 function App() {
-	//console.log(useState());
-	const result = useState(initialExpenses);
-	const expenses = result[0];
-	const setExpenses = result[1];
+	const [expenses, setExpenses] = useState(initialExpenses);
+
+	// const expenses = result[0];
+	// const setExpenses = result[1];
 	console.log(expenses, setExpenses);
 	return (
-		<div className="App">
+		<>
 			<Alert />
 			<ExpenseForm />
 			<ExpenseList />
-			hello
-		</div>
+		</>
 	);
 }
 
