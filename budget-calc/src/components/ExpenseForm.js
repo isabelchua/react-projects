@@ -15,7 +15,21 @@ const ExpenseForm = () => {
 						placeholder="e.g. rent"
 					/>
 				</div>
+				<div className="form-group">
+					<label htmlFor="amount">amount</label>
+					<input
+						type="text"
+						className="form-control"
+						id="amount"
+						name="amount"
+						placeholder="e.g. 100"
+					/>
+				</div>
 			</div>
+			<button type="submit" className="btn">
+				submit
+				<MdSend className="btn-icon" />
+			</button>
 		</form>
 	);
 };
