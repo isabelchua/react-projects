@@ -31,7 +31,16 @@ function App() {
 	};
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log(charge, amount);
+		//console.log(charge, amount);
+		console.log(expenses);
+
+		if (charge !== "" && amount > 0) {
+			const singleExpense = { id: uuidv4(), charge, amount };
+			console.log(expenses);
+			setExpenses([...expenses, singleExpense]);
+		} else {
+			// handle alert called
+		}
 	};
 	// const expenses = result[0];
 	// const setExpenses = result[1];
