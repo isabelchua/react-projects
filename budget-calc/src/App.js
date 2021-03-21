@@ -38,6 +38,8 @@ function App() {
 			const singleExpense = { id: uuidv4(), charge, amount };
 			console.log(expenses);
 			setExpenses([...expenses, singleExpense]);
+			setCharge("");
+			setAmount("");
 		} else {
 			// handle alert called
 		}
