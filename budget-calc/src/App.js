@@ -68,12 +68,13 @@ function App() {
 
 	// clear all items
 	const clearItems = () => {
-		console.log("cleared all items");
+		//console.log("cleared all items");
+		setExpenses([]);
 	};
 
 	// handle delete
 	const handleDelete = id => {
-		console.log(`item deleted : ${id}`);
+		//console.log(`item deleted : ${id}`);
 	};
 	// handle edit
 	const handleEdit = id => {
