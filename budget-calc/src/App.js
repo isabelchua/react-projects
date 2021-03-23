@@ -70,6 +70,7 @@ function App() {
 	const clearItems = () => {
 		//console.log("cleared all items");
 		setExpenses([]);
+		handleAlert({ type: "danger", text: "all items deleted" });
 	};
 
 	// handle delete
