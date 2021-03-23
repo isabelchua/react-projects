@@ -22,15 +22,26 @@ function App() {
 	// alert
 	const [alert, setAlert] = useState({ show: false });
 	// ******** functionality ********
+	//handle charge
 	const handleCharge = e => {
 		//console.log(`charge : ${e.target.value}`);
 		setCharge(e.target.value);
 	};
+	//handle amount
 	const handleAmount = e => {
 		//console.log(`amount : ${e.target.value}`);
 
 		setAmount(e.target.value);
 	};
+	//handle alert
+	const handleAlert = ({ type, text }) => {
+		setAlert({ show: true, type, text });
+		setTimeout(() => {
+			setAlert({ show: false });
+		}, 3000);
+	};
+
+	//handle submit
 	const handleSubmit = e => {
 		e.preventDefault();
 		//console.log(charge, amount);
@@ -40,6 +51,7 @@ function App() {
 			const singleExpense = { id: uuidv4(), charge, amount };
 			console.log(expenses);
 			setExpenses([...expenses, singleExpense]);
+			handleAlert({ type: "success", text: "item added" });
 			setCharge("");
 			setAmount("");
 		} else {
