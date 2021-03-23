@@ -75,6 +75,10 @@ function App() {
 	// handle delete
 	const handleDelete = id => {
 		//console.log(`item deleted : ${id}`);
+		let tempExpenses = expenses.filter(item => item.id !== id);
+		//console.log(tempExpenses);
+		setExpenses(tempExpenses);
+		handleAlert({ type: "danger", text: "item deleted" });
 	};
 	// handle edit
 	const handleEdit = id => {
