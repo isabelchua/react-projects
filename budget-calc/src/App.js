@@ -49,13 +49,23 @@ function App() {
 	const handleSubmit = e => {
 		e.preventDefault();
 		//console.log(charge, amount);
-		console.log(expenses);
+		//console.log(expenses);
 
 		if (charge !== "" && amount > 0) {
-			const singleExpense = { id: uuidv4(), charge, amount };
-			console.log(expenses);
-			setExpenses([...expenses, singleExpense]);
-			handleAlert({ type: "success", text: "item added" });
+			if (edit) {
+				let tempExpenses = expenses.map(item => {
+					return item.id === id ? { ...item, charge, amount } : item;
+				});
+				setExpenses(tempExpenses);
+				setEdit(false);
+				handleAlert({ type: "success", text: "item edited" });
+			} else {
+				const singleExpense = { id: uuidv4(), charge, amount };
+				console.log(expenses);
+				setExpenses([...expenses, singleExpense]);
+				handleAlert({ type: "success", text: "item added" });
+			}
+
 			setCharge("");
 			setAmount("");
 		} else {
