@@ -3,7 +3,7 @@ import Alert from "./components/Alert";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseForm from "./components/ExpenseForm";
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const initialExpenses = localStorage.getItem("expenses")
 	? JSON.parse(localStorage.getItem("expenses"))
@@ -29,6 +29,11 @@ function App() {
 	const [edit, setEdit] = useState(false);
 	// id
 	const [id, setId] = useState(0);
+
+	useEffect(() => {
+		console.log("use effect");
+		localStorage.setItem("expenses", JSON.stringify(expenses));
+	}, [expenses]);
 	// ******** functionality ********
 	//handle charge
 	const handleCharge = e => {
@@ -65,7 +70,7 @@ function App() {
 				handleAlert({ type: "success", text: "item edited" });
 			} else {
 				const singleExpense = { id: uuidv4(), charge, amount };
-				console.log(expenses);
+				//console.log(expenses);
 				setExpenses([...expenses, singleExpense]);
 				handleAlert({ type: "success", text: "item added" });
 			}
