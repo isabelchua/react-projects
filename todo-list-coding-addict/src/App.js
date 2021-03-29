@@ -23,7 +23,7 @@ class App extends Component {
 
 		const newItem = {
 			id: this.state.id,
-			item: this.state.item
+			title: this.state.item
 		};
 		console.log(newItem);
 
