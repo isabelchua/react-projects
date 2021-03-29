@@ -48,6 +48,11 @@ class App extends Component {
 			items: filteredItems
 		});
 	};
+
+	handleEdit = id => {
+		console.log(id);
+	};
+
 	render() {
 		return (
 			<div className="container">
@@ -63,6 +68,7 @@ class App extends Component {
 							items={this.state.items}
 							clearList={this.clearList}
 							handleDelete={this.handleDelete}
+							handleEdit={this.handleEdit}
 						/>
 					</div>
 				</div>
