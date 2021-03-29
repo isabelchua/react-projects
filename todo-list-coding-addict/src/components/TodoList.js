@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 
 export default class TodoList extends Component {
 	render() {
-		const { items } = this.props;
+		const { items, clearList } = this.props;
 
 		return (
 			<div>
@@ -16,6 +16,7 @@ export default class TodoList extends Component {
 					<button
 						type="button"
 						className="btn btn-danger btn-block text-capitalize mt-5"
+						onClick={clearList}
 					>
 						clear list
 					</button>

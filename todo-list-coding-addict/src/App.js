@@ -35,6 +35,12 @@ class App extends Component {
 			editItem: false
 		});
 	};
+
+	clearList = () => {
+		this.setState({
+			items: []
+		});
+	};
 	render() {
 		return (
 			<div className="container">
@@ -46,7 +52,10 @@ class App extends Component {
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
 						/>
-						<TodoList items={this.state.items} />
+						<TodoList
+							items={this.state.items}
+							clearList={this.clearList}
+						/>
 					</div>
 				</div>
 			</div>
