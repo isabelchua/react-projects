@@ -3,13 +3,12 @@ import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import uuid from "uuid";
-import { render } from "react-dom";
+import { v4 as uuidv4 } from "uuid";
 
 class App extends Component {
 	state = {
 		items: [],
-		id: 0,
+		id: uuidv4(),
 		item: "",
 		editItem: false
 	};
@@ -19,7 +18,23 @@ class App extends Component {
 		});
 	};
 
-	handleSubmit = e => {};
+	handleSubmit = e => {
+		e.preventDefault();
+
+		const newItem = {
+			id: this.state.id,
+			item: this.state.item
+		};
+		console.log(newItem);
+
+		const updatedItems = [...this.state.items, newItem];
+		this.setState({
+			items: updatedItems,
+			item: "",
+			id: uuidv4(),
+			editItem: false
+		});
+	};
 	render() {
 		return (
 			<div className="container">
