@@ -1,11 +1,36 @@
 import React, { Component } from "react";
+import { FaCocktail, FaHiking, FaShuttleVan, FaBeer } from "react-icons/fa";
 import Title from "./Title";
 
 export default class Services extends Component {
+	state = {
+		services: [
+			{
+				icon: <FaCocktail />,
+				title: "free cocktails",
+				text: "lorem ipsum"
+			},
+			{
+				icon: <FaHiking />,
+				title: "free hikinh",
+				text: "lorem ipsum"
+			},
+			{
+				icon: <FaShuttleVan />,
+				title: "free shuttle van",
+				text: "lorem ipsum"
+			},
+			{
+				icon: <FaBeer />,
+				title: "free beer",
+				text: "lorem ipsum"
+			}
+		]
+	};
 	render() {
 		return (
 			<div>
-				<Title title="services" />
+				<Title title="services">lorem ipsum</Title>
 			</div>
 		);
 	}
