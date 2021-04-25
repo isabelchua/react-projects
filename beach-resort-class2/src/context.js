@@ -7,7 +7,7 @@ export default class RoomProvider extends Component {
 	state = {};
 	render() {
 		return (
-			<RoomContext.Provider value="hello">
+			<RoomContext.Provider value={{...this.state.}}>
 				{this.props.children}
 			</RoomContext.Provider>
 		);
