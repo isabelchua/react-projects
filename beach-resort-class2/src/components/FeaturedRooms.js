@@ -22,7 +22,7 @@ export default class FeaturedRooms extends Component {
 					{loading ? <Loading /> : rooms}
 				</div>
 				from featured rooms
-				<Loading />
+				{/* <Loading /> */}
 				{/* {greeting} {name} */}
 			</section>
 		);
