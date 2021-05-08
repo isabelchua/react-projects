@@ -9,7 +9,11 @@ export default class SingleRoom extends Component {
 	constructor(props) {
 		super(props);
 		console.log(this.props);
+		this.state = {
+			slug: this.props.match.params.slug
+		};
 	}
+	//2:41
 	componentDidMount() {}
 	render() {
 		return <div>single room page</div>;
