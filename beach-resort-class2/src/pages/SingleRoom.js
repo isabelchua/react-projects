@@ -15,7 +15,7 @@ export default class SingleRoom extends Component {
 		};
 	}
 	static contextType = RoomContext;
-	//2:41
+	//2:50
 	//componentDidMount() {}
 	render() {
 		const { getRoom } = this.context;
@@ -42,6 +42,14 @@ export default class SingleRoom extends Component {
 			pets,
 			images
 		} = room;
-		return <div>single room page {room.name}</div>;
+		return (
+			<Hero hero="roomsHero">
+				<Banner title={`${name} room`}>
+					<Link to="rooms" className="btn-primary">
+						back to rooms
+					</Link>
+				</Banner>
+			</Hero>
+		);
 	}
 }
