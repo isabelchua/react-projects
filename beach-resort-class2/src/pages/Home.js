@@ -4,7 +4,7 @@ import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import Services from "../components/Services";
 import FeaturedRooms from "../components/FeaturedRooms";
-import Button from "../components/StyledHero";
+// import Button from "../components/StyledHero";
 const Home = () => {
 	return (
 		<>
@@ -20,7 +20,7 @@ const Home = () => {
 			</Hero>
 			<Services />
 			<FeaturedRooms />
-			<Button>hello</Button>
+			{/* <Button>hello</Button> */}
 		</>
 	);
 };
