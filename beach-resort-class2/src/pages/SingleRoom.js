@@ -61,6 +61,12 @@ export default class SingleRoom extends Component {
 							return <img key={index} src={item} alt={name} />;
 						})}
 					</div>
+					<div className="single-room-info">
+						<article className="desc">
+							<h3>details</h3>
+							<p>{description}</p>
+						</article>
+					</div>
 				</section>
 			</>
 		);
