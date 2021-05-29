@@ -16,7 +16,7 @@ export default class SingleRoom extends Component {
 		};
 	}
 	static contextType = RoomContext;
-	//2:58 3:09
+	//2:58 3:09 3:25
 	//componentDidMount() {}
 	render() {
 		const { getRoom } = this.context;
