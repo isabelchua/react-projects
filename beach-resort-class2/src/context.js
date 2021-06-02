@@ -14,7 +14,6 @@ export default class RoomProvider extends Component {
 	};
 	// get Data
 
-	// 2:06
 	componentDidMount() {
 		let rooms = this.formatData(items);
 		//console.log(rooms);
