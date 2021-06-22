@@ -62,7 +62,7 @@ export default function RoomsFilter({ rooms }) {
 				</div>
 				{/* end select type */}
 				{/* guests */}
-				{/* 4:33 */}
+				{/* 4:35 */}
 				<div className="form-group">
 					<label htmlFor="cpacity">Guests</label>
 					<select
