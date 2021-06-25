@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CardItem = props => {
+function CardItem(props) {
 	return (
-		<div>
+		<>
 			<li className="cards__item">
 				<Link className="cards__item__link" to={props.path}>
 					<figure
@@ -11,18 +11,18 @@ const CardItem = props => {
 						data-category={props.label}
 					>
 						<img
-							src={props.src}
-							alt="Travel"
 							className="cards__item__img"
+							alt="Travel"
+							src={props.src}
 						/>
-						<div className="cards__item__info">
-							<h5 className="cards__item__text">{props.text}</h5>
-						</div>
 					</figure>
+					<div className="cards__item__info">
+						<h5 className="cards__item__text">{props.text}</h5>
+					</div>
 				</Link>
 			</li>
-		</div>
+		</>
 	);
-};
+}
 
 export default CardItem;

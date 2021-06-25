@@ -5,6 +5,8 @@ import Tours from "./Tours";
 // I SWITCHED TO PERMANENT DOMAIN
 const url = "https://course-api.com/react-tours-project";
 
+// 50:24
+
 function App() {
 	const [loading, setLoading] = useState(true);
 	const [tours, setTours] = useState([]);

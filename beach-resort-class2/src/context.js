@@ -90,6 +90,7 @@ export default class RoomProvider extends Component {
 			tempRooms = tempRooms.filter(room => room.type === type);
 		}
 
+		//5:02
 		//filter by capacity
 		if (capacity !== 1) {
 			tempRooms = tempRooms.filter(room => room.capacity >= capacity);
