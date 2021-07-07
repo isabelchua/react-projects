@@ -42,8 +42,7 @@ function App() {
 				<Tasks
 					tasks={tasks}
 					onDelete={deleteTask}
-					on
-					Toggle={toggleReminder}
+					onToggle={toggleReminder}
 				/>
 			) : (
 				"no tasks to show"
