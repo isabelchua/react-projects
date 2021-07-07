@@ -11,11 +11,11 @@ const AddTask = () => {
 				<label htmlFor="">Day & Time</label>
 				<input type="text" placeholder="Add Day & Time" />
 			</div>
-			<div className="form-control">
+			<div className="form-control form-control-check">
 				<label htmlFor="">Set Reminder</label>
 				<input type="checkbox" placeholder="Add Task" />
 			</div>
-			<input type="submit" value="Save Task" />
+			<input type="submit" value="Save Task" className="btn btn-block" />
 		</form>
 	);
 };
