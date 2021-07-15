@@ -17,6 +17,18 @@
       "day": "sdf",
       "reminder": "",
       "id": 4
+    },
+    {
+      "text": "fgfd",
+      "day": "dfg",
+      "reminder": true,
+      "id": 5
+    },
+    {
+      "text": "kl;",
+      "day": "lk;",
+      "reminder": false,
+      "id": 6
     }
   ]
 }
