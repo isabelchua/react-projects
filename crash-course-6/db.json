@@ -10,13 +10,19 @@
       "id": 3,
       "text": "Food Shopping",
       "day": "Jan 29th at 2:30pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "text": "fgfd",
       "day": "dfg",
       "reminder": true,
       "id": 5
+    },
+    {
+      "text": "test",
+      "day": "342",
+      "reminder": true,
+      "id": 6
     }
   ]
 }

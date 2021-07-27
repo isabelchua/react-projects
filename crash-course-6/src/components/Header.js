@@ -22,11 +22,6 @@ Header.defaultProps = {
 	title: "Task Tracker"
 };
 
-// const headingStyle = {
-// 	color: 'red',
-// 	backgroundColor: 'black'
-// }
-
 Header.propTypes = {
 	title: PropTypes.string
 };
