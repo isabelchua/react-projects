@@ -63,7 +63,7 @@ function App() {
 		setTasks(tasks.filter(task => task.id !== id));
 	};
 
-	// Delete Task front
+	// Delete Task front without server
 	// const deleteTask = id => {
 	// 	setTasks(tasks.filter(task => task.id !== id));
 	// };
