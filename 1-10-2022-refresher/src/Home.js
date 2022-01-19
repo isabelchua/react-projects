@@ -11,6 +11,12 @@ const Home = () => {
 
 	const handleClickAgain = name => {};
 
+	const [blogs, setBlogs] = useState([
+		{ title: "Title", body: "lorem ipsum..", author: "isabel", id: 1 },
+		{ title: "Title 2", body: "lorem ipsum..", author: "andrew", id: 2 },
+		{ title: "Title 3", body: "lorem ipsum..", author: "hannah", id: 3 }
+	]);
+
 	return (
 		<div>
 			<div className="home">Homepage </div>
