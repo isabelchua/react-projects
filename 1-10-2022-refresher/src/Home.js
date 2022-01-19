@@ -20,6 +20,14 @@ const Home = () => {
 	return (
 		<div>
 			<div className="home">Homepage </div>
+			{blogs.map(blog => (
+				<div className="blogprev" key={blog.id}>
+					<h2>{blog.title}</h2>
+					<p>written by {blog.author}</p>
+					<p>{blog.body}</p>
+				</div>
+			))}
+			<br />
 			<p>{name} is</p>
 			<p>{age} years old</p>
 			<button onClick={handleClick}>Click Me</button>
