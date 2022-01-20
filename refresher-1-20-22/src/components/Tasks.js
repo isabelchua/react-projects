@@ -1,29 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import Task from "./Task";
 
-// const tasks = [
-// 	{
-// 		id: 1,
-// 		text: "task 1",
-// 		day: "Jan 8th at 3:30pm"
-// 	},
-// 	{
-// 		id: 2,
-// 		text: "eat",
-// 		day: "Feb 18th at 11:30am"
-// 	},
-// 	{
-// 		id: 3,
-// 		text: "sleep",
-// 		day: "March 23th at 1:30pm"
-// 	}
-// ];
-
-const Tasks = ({ tasks }) => {
+const Tasks = ({ tasks, onDelete }) => {
 	return (
 		<div>
 			{tasks.map(task => (
-				<h3 key={task.id}>{task.text}</h3>
+				<Task key={task.id} task={task} onDelete={onDelete} />
 			))}
 		</div>
 	);
