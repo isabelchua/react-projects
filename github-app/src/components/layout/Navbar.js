@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class componentName extends Component {
+class Navbar extends Component {
 	static defaultProps = {
 		title: "Github Finder",
 		icon: "fab fa-github"
@@ -17,4 +17,4 @@ class componentName extends Component {
 	}
 }
 
-export default componentName;
+export default Navbar;
