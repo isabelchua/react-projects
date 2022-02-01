@@ -4,9 +4,13 @@ import { useSelector } from "react-redux";
 function App() {
 	const account = useSelector(state => state.account);
 
-	console.log(account);
-
-	return <div className="App">test</div>;
+	return (
+		<div className="App">
+			<h1>{account}</h1>
+			<button>Deposit</button>
+			<button>Withdraw</button>
+		</div>
+	);
 }
 
 export default App;
