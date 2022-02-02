@@ -1,13 +1,14 @@
-import "./App.css";
 import Content from "./Content";
+import Header from "./Header";
 
 function App() {
 	return (
 		<div className="App">
 			<header>
-				test
-				<Content />
+				<Header />
 			</header>
+
+			<Content />
 		</div>
 	);
 }
