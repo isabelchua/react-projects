@@ -2,6 +2,7 @@ import Content from "./Content";
 import Header from "./Header";
 
 import { useState } from "react";
+import Footer from "./Footer";
 
 function App() {
 	const [items, setItems] = useState([
@@ -45,6 +46,7 @@ function App() {
 				handleCheck={handleCheck}
 				handleDelete={handleDelete}
 			/>
+			<Footer list={items} />
 		</div>
 	);
 }
