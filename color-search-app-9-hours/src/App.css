@@ -1,0 +1,10 @@
+.App {
+	text-align: center;
+}
+
+.colorBox {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #333;
+	margin: 20px auto;
+}
