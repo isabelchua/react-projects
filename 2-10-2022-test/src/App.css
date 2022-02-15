@@ -1,1 +1,28 @@
+html {
+	text-align: left;
+	color: #666;
+}
 
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+	justify-content: space-around;
+	background-color: #ddd;
+	padding: 10px;
+	margin: 10px;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.head {
+	font-size: 19px;
+	font-weight: 600;
+}
+
+.center {
+	text-align: center;
+}

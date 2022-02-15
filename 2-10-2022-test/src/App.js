@@ -33,24 +33,35 @@ function App() {
 		//console.log(didEat);
 	};
 
+	const clickNewFeed = () => {
+		console.log("new feed");
+	};
+
 	// Add remove food
 
 	return (
-		<div className="App">
+		<div className="container">
 			<form onSubmit={handleSubmit}>
 				{/* <input type="text" name="name" onChange={onChange} />
 				{text.name} */}
-				<h1>February 2022</h1>
-				<div>
-					<div className="pet-name">Name</div>
-					<div className="date-fed">Fed on:</div>
-				</div>
-				Avic Versicolor
-				<img src={didFeed} alt="food-img" onClick={onClick} />
-				{dateFed}
-				<button>Delete</button>
-				<div>
-					<button>New Feed</button>
+				<h1 className="center">Tarantula Feed Tracker</h1>
+				<h3 className="center">February 2022</h3>
+				<div className="container">
+					<div className="row head">
+						<div className="head">Name</div>
+						<div className="date-fed">Did it Eat?</div>
+						<div className="date-fed">Fed on:</div>
+						<div className="">Delete</div>
+					</div>
+					<div className="row">
+						Avic Versicolor
+						<img src={didFeed} alt="food-img" onClick={onClick} />
+						{dateFed}
+						<button>Delete</button>
+					</div>
+					<div className="row">
+						<button onClick={clickNewFeed}>New Feed</button>
+					</div>
 				</div>
 			</form>
 		</div>
