@@ -9,7 +9,11 @@ const FeedList = ({ feedList, setFeedList }) => {
 	const [didEat, setDidEat] = useState(false);
 	const [dateFed, setDateFed] = useState("");
 
-	const onClick = () => {
+	const handleDelete = ({ id }) => {
+		setFeedList(feedList.filter(feed => feed.id !== id));
+	};
+
+	const onHandleClick = () => {
 		setDidEat(!didEat);
 		if (didEat) {
 			setDidFeed(imgDidEat);
@@ -22,20 +26,23 @@ const FeedList = ({ feedList, setFeedList }) => {
 	};
 	console.log(feedList);
 	return (
-		<div className="row">
+		<div>
 			{/* Avic Versicolor
 			<img src={didFeed} alt="food-img" onClick={onClick} />
 			{dateFed}
 			<button>Delete</button> */}
 
 			{feedList.map(food => (
-				<div key={food.id}>
+				<div className="row" key={food.id}>
 					<div className="col">test</div>
 					<div className="col">{food.name}</div>
 					<div className="col">
-						<img src={didFeed} alt="food-img" onClick={onClick} />
+						<img src={didFeed} alt="food-img" onClick={onHandleClick} />
 					</div>
 					<div className="col">{food.date}</div>
+					<div className="col">
+						<button onClick={() => handleDelete(food)}>delete</button>
+					</div>
 				</div>
 			))}
 		</div>
