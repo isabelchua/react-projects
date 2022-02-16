@@ -51,12 +51,12 @@ function App() {
 						<div className="">Delete</div>
 					</div>
 					<FeedList feedList={feedList} setFeedList={setFeedList} />
-					{feedList.map(food => (
-						<div>
+					{/* {feedList.map(food => (
+						<div key={feedList.id}>
 							<div>{feedList.name}</div>
 							<div>{feedList.didEat}</div>
 						</div>
-					))}
+					))} */}
 					<div className="row">
 						<button onClick={clickNewFeed}>New Feed</button>
 					</div>
