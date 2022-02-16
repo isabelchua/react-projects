@@ -1,16 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import imgDidEat from "./images/dideat.png";
-import imgDidNotEat from "./images/didnoteat.png";
-import food from "./images/food.png";
-import blankBox from "./images/blank-box.png";
+import { v4 as uuidv4 } from "uuid";
+import FeedList from "./components/FeedList";
 import date from "date-and-time";
 
 function App() {
 	const [text, setText] = useState("");
-	const [didFeed, setDidFeed] = useState(food);
-	const [didEat, setDidEat] = useState(false);
-	const [dateFed, setDateFed] = useState("");
+
+	//map list
+	const [feedList, setFeedList] = useState([]);
 
 	const onChange = e => {
 		setText({ ...text, name: e.target.value });
@@ -21,20 +19,18 @@ function App() {
 		//console.log(text);
 	};
 
-	const onClick = () => {
-		setDidEat(!didEat);
-		if (didEat) {
-			setDidFeed(imgDidEat);
-		} else {
-			setDidFeed(imgDidNotEat);
-		}
-		const now = new Date();
-		setDateFed(date.format(now, "ddd, MMM DD YYYY"));
-		//console.log(didEat);
-	};
-
-	const clickNewFeed = () => {
+	const clickNewFeed = e => {
+		e.preventDefault();
 		console.log("new feed");
+		const now = new Date();
+		setFeedList([
+			...feedList,
+			{
+				id: uuidv4(),
+				feed: false,
+				date: date.format(now, "ddd, MMM DD YYYY")
+			}
+		]);
 	};
 
 	// Add remove food
@@ -45,6 +41,7 @@ function App() {
 				{/* <input type="text" name="name" onChange={onChange} />
 				{text.name} */}
 				<h1 className="center">Tarantula Feed Tracker</h1>
+
 				<h3 className="center">February 2022</h3>
 				<div className="container">
 					<div className="row head">
@@ -53,12 +50,13 @@ function App() {
 						<div className="date-fed">Fed on:</div>
 						<div className="">Delete</div>
 					</div>
-					<div className="row">
-						Avic Versicolor
-						<img src={didFeed} alt="food-img" onClick={onClick} />
-						{dateFed}
-						<button>Delete</button>
-					</div>
+					<FeedList feedList={feedList} setFeedList={setFeedList} />
+					{feedList.map(food => (
+						<div>
+							<div>{feedList.name}</div>
+							<div>{feedList.didEat}</div>
+						</div>
+					))}
 					<div className="row">
 						<button onClick={clickNewFeed}>New Feed</button>
 					</div>
