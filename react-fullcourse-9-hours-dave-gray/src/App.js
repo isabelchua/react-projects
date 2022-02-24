@@ -23,11 +23,15 @@ function App() {
 	// 	localStorage.setItem("shoppinglist", JSON.stringify(newItems));
 	// };
 
+	// const setAndSaveItems = (newItems) => {
+	// 	setItems(newItems)
+	// }
+
 	const addItem = item => {
 		const id = items.length ? items[items.length - 1].id + 1 : 1;
 		const myNewItem = { id, checked: false, item };
 		const listItems = [...items, myNewItem];
-		addItem(listItems);
+		setItems(listItems);
 	};
 
 	const handleCheck = id => {
@@ -35,7 +39,8 @@ function App() {
 			item.id === id ? { ...item, checked: !item.checked } : item
 		);
 
-		addItem(listItems);
+		//addItem(listItems);
+		setItems(listItems);
 	};
 
 	const handleDelete = id => {
