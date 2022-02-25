@@ -11,7 +11,7 @@ class Pizza {
 	}
 }
 
-class SpecialPizza extends Pizza {
+class SpecialtyPizza extends Pizza {
 	constructor(pizzaSize) {
 		super(pizzaSize);
 		this.type = "The Works";
