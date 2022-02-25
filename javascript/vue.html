@@ -11,7 +11,16 @@
 <body>
 	<h1>vue</h1>
 		<div id="app">
+			<div v-if="showBooks">
 			<h2>{{title}} - {{name}} - age : {{age}}</h2>
+		</div>
+		
+		<button @click="toggleShowBooks"><span>Hide Books</span></button>
+
+			<!-- <button v-on:click="age++">increase age</button>
+			<button v-on:click="age--">decrease age</button>
+			<div @click="changeTitle">change title</div> -->
+			<!-- <div @click="title= 'something else'">change title</div> -->
 		</div>
 		<script src="vue.js"></script>
 		
