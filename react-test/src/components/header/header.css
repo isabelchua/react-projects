@@ -36,3 +36,16 @@ header {
 	height: 2rem;
 	background: var(--color-primary);
 }
+
+/* ++++++++ ME ++++++++ */
+.me {
+	background: linear-gradient(var(--color-primary), transparenct);
+	width: 22rem;
+	height: 30rem;
+	position: absolute;
+	left: calc(50% - 11rem);
+	margin-top: 4rem;
+	border-radius: 12rem 12rem 0 0;
+	overflow: hidden;
+	padding: 5 rem 1.5rem 1.5rem 1.5rem;
+}
