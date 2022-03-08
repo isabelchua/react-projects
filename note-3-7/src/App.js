@@ -1,7 +1,12 @@
 import "./App.css";
+import NotesList from "./components/NotesList";
 
 function App() {
-	return <div className="App">app</div>;
+	return (
+		<div className="App">
+			<NotesList />
+		</div>
+	);
 }
 
 export default App;
