@@ -26,9 +26,13 @@ function App() {
 			date: "15/04/2022"
 		}
 	]);
+
+	const addNote = text => {
+		console.log(text);
+	};
 	return (
 		<div className="App">
-			<NotesList notes={notes} />
+			<NotesList notes={notes} handleAddNote={addNote} />
 		</div>
 	);
 }
