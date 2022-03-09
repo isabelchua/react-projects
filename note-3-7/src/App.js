@@ -19,6 +19,11 @@ function App() {
 			id: nanoid(),
 			text: "this is my 3rd note",
 			date: "15/04/2022"
+		},
+		{
+			id: nanoid(),
+			text: "this is my 3rd note",
+			date: "15/04/2022"
 		}
 	]);
 	return (
