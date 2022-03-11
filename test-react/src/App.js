@@ -5,9 +5,7 @@ import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 
 function App() {
-	const [notes, setNotes] = useState([
-		{ id: 1, note: "test", date: "1/2/2022" }
-	]);
+	const [notes, setNotes] = useState([]);
 
 	const [activeNote, setActiveNote] = useState(false);
 
@@ -26,6 +24,10 @@ function App() {
 		setNotes(notes.filter(note => note.id !== idToDelete));
 	};
 
+	const getActiveNote = () => {
+		return notes.find(note => note.id === activeNote);
+	};
+
 	return (
 		<div className="App">
 			<Sidebar
@@ -35,7 +37,7 @@ function App() {
 				activeNote={activeNote}
 				setActiveNote={setActiveNote}
 			/>
-			<Main />
+			<Main activeNote={getActiveNote()} />
 		</div>
 	);
 }

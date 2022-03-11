@@ -1,6 +1,6 @@
 import React from "react";
 
-const Main = () => {
+const Main = ({ activeNote }) => {
 	return (
 		<div className="app-name">
 			<div className="app-main-note-edit">
@@ -12,8 +12,8 @@ const Main = () => {
 				></textarea>
 			</div>
 			<div className="app-main-note-preview">
-				<h1 className="preview-title">TITLE</h1>
-				<div className="markdown-preview">note preview</div>
+				<h1 className="preview-title">d</h1>
+				<div className="markdown-preview">t</div>
 			</div>
 		</div>
 	);
