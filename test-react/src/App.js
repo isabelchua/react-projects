@@ -8,6 +8,9 @@ function App() {
 	const [notes, setNotes] = useState([
 		{ id: 1, note: "test", date: "1/2/2022" }
 	]);
+
+	const [activeNote, setActiveNote] = useState(false);
+
 	const onAddNote = () => {
 		const newNote = {
 			id: uuid(),
@@ -29,6 +32,8 @@ function App() {
 				notes={notes}
 				onAddNote={onAddNote}
 				onDeleteNote={onDeleteNote}
+				activeNote={activeNote}
+				setActiveNote={setActiveNote}
 			/>
 			<Main />
 		</div>
