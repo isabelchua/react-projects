@@ -12,7 +12,7 @@ const Main = ({ activeNote }) => {
 				></textarea>
 			</div>
 			<div className="app-main-note-preview">
-				<h1 className="preview-title">d</h1>
+				<h1 className="preview-title">{activeNote.title}</h1>
 				<div className="markdown-preview">t</div>
 			</div>
 		</div>

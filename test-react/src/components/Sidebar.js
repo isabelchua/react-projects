@@ -17,6 +17,7 @@ const Sidebar = ({
 			<div className="app-sidebar-notes">
 				{notes.map(note => (
 					<div
+						key={note.id}
 						className={`app-sidebar-note ${
 							note.id === activeNote && "active"
 						}`}
