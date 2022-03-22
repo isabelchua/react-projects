@@ -30,6 +30,8 @@ const Folder = props => {
 	console.log(props);
 	// console.log(props);
 	// const borderStyle = { border: "2px solid pink" };
+	//test
+
 	const handleClick = () => {
 		//console.log("clicked");
 		setIsOpen(!isOpen);
