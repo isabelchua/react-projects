@@ -6,6 +6,8 @@ const Header = () => {
 			<h1>Plushisaur</h1>
 			<nav>
 				<li>About</li>
+				<li>Team</li>
+				<li>FAQ</li>
 			</nav>
 		</div>
 	);
