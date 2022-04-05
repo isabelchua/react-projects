@@ -14,3 +14,13 @@ body {
 	grid-template-columns: repeat(4, 6rem);
 	grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
+
+.span-two {
+	grid-column: 1/ -1;
+	background-color: rgba(0, 0, 0, 0, 0.75);
+	display: flex;
+}
+
+.output .previous-operand {
+	color: rgba(255);
+}
