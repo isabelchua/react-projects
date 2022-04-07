@@ -1,8 +1,8 @@
 import "./App.css";
-import AddText from "./components/AddText";
-import List from "./components/List";
+import { useReducer } from "react";
+import DigitButton from "./components/DigitButton";
 
-const ACTIONS = {
+export const ACTIONS = {
 	ADD_DIGIT: "add-digit",
 	CHOOSE_OPERATION: "choose-operation",
 	CLEAR: "clear",
@@ -15,14 +15,17 @@ function reducer(state, { type, payload }) {
 		case ACTIONS.ADD_DIGIT:
 			return {
 				...state,
-				currentOperand: `${currentOperand}${payload.digit}`
+				currentOperand: `${state.currentOperand || ""}${payload.digit}`
 			};
+		default:
+			return state;
 	}
 }
 
 function App() {
 	const [{ currentOperand, previousOperand, operation }, dispatch] =
 		useReducer(reducer, {});
+
 	return (
 		<div className="calculator-grid">
 			<div className="output">
@@ -33,7 +36,8 @@ function App() {
 			</div>
 			<button className="span-two">AC</button>
 			<button>DEL</button>
-			<button>/</button>
+			<DigitButton digit="/" dispatch={dispatch} />
+
 			<button>1</button>
 			<button>2</button>
 			<button>3</button>
