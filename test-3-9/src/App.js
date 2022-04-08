@@ -122,7 +122,7 @@ function formatOperand(operand) {
 	if (operand == null) return;
 	const [interger, decimal] = operand.split(".");
 	if (decimal == null) return INTEGER_FORMATTER.format(interger);
-	return;
+	return `${INTEGER_FORMATTER.format(interger)}.${decimal}`;
 }
 
 function App() {
