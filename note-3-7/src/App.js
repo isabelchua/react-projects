@@ -28,6 +28,8 @@ function App() {
 		}
 	]);
 
+	const [searchText, setSearchText] = useState("");
+
 	const addNote = text => {
 		const date = new Date();
 		const newNote = {
@@ -46,7 +48,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Search />
+			<Search handleSearchNote={setSearchText} />
 			<NotesList
 				notes={notes}
 				handleAddNote={addNote}
