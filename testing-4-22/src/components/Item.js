@@ -1,5 +1,5 @@
 const Item = props => {
-	return <div>{props.name}</div>;
+	return <div>{props.data.name}</div>;
 };
 
 export default Item;
