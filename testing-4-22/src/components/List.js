@@ -1,14 +1,12 @@
 import React from "react";
-import { data } from "./Data";
+// import { data } from "./Data";
 import Item from "./Item";
 
-const List = () => {
+const List = ({ plushies }) => {
 	return (
 		<div>
-			{data.map(data => (
-				<li>
-					<Item data={data} />
-				</li>
+			{plushies.map(plushi => (
+				<Item plushi={plushi} />
 			))}
 		</div>
 	);
