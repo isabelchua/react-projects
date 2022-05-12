@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import ContactContext from "../../context/contact/contactContext";
-import contactContext from "./../../context/contact/contactContext";
 import ContactItem from "./ContactItem";
 
 const Contacts = () => {
 	const contactContext = useContext(ContactContext);
+
+	console.log(contactContext);
 
 	const { contacts } = contactContext;
 	return (
