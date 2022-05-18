@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import {
 	ADD_CONTACT,
 	DELETE_CONTACT,
@@ -14,6 +15,13 @@ export default (state, action) => {
 			return {
 				...state,
 				contacts: [...state.contacts, action.payload]
+			};
+		case UPDATE_CONTACT:
+			return {
+				...state,
+				contacts: state.contacts.map(contact =>
+					contact.id === action.payload.id ? action.payload : contact
+				)
 			};
 		case DELETE_CONTACT:
 			return {
@@ -32,6 +40,7 @@ export default (state, action) => {
 				...state,
 				current: null
 			};
+
 		default:
 			return state;
 	}
