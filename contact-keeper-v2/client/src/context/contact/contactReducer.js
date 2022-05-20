@@ -1,4 +1,5 @@
 import {
+	SET_CURRENT,
 	ADD_CONTACT,
 	DELETE_CONTACT,
 	CLEAR_CURRENT,
@@ -20,6 +21,16 @@ export default (state, action) => {
 				contacts: state.contacts.filter(
 					contact => contact.id !== action.payload
 				)
+			};
+		case SET_CURRENT:
+			return {
+				...state,
+				current: action.payload
+			};
+		case CLEAR_CURRENT:
+			return {
+				...state,
+				current: null
 			};
 		default:
 			return state;
