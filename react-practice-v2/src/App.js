@@ -11,9 +11,9 @@ function App() {
 			<input
 				type="text"
 				value={text}
-				onChange={e => setText({ ...text, text: e.target.value })}
+				onChange={e => setText(e.target.value)}
 			/>
-			;
+			{text}
 		</div>
 	);
 }
