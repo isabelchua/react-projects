@@ -9,13 +9,30 @@ import PeopleOutlinedIcon from "@mui/icons-material/LightMode";
 import ContactsOutlinedIcon from "@mui/icons-material/DarkMode";
 import ReceiptOutlinedIcon from "@mui/icons-material/Notifications";
 import PersonOutlinedIcon from "@mui/icons-material/Person";
-import CalendarTodayIcon from "@mui/icons-material/Search";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarToday";
+import HomeOutlinedIcon from "@mui/icons-material/Home";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChart";
-import PieChartOutlinedIcon from "@mui/icons-material/Search";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/Search";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/Search";
 import TimelineOutlinedIcon from "@mui/icons-material/Timeline";
 import MenuOutlinedIcon from "@mui/icons-material/Search";
-import MapOutlinedIcon from "@mui/icons-material/Search";
+import MapOutlinedIcon from "@mui/icons-material/Map";
 // import Item from ""
+
+const Item = ({ title, to, icon, selected, setSelected }) => {
+	const theme = useTheme();
+	const colors = tokens(theme.pallete.mode);
+	return (
+		<MenuItem
+			active={selected === title}
+			style={{ color: colors.grey[100] }}
+			onClick
+		>
+			<Typography>{title}</Typography>
+			<Link to={to} />
+		</MenuItem>
+	);
+};
 
 const Sidebar = () => {
 	const theme = useTheme();
@@ -107,7 +124,7 @@ const Sidebar = () => {
 						</Box>
 					)}
 
-					{/* <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+					<Box paddingLeft={isCollapsed ? undefined : "10%"}>
 						<Item
 							title="Dashboard"
 							to="/"
@@ -209,7 +226,7 @@ const Sidebar = () => {
 							selected={selected}
 							setSelected={setSelected}
 						/>
-					</Box> */}
+					</Box>
 				</Menu>
 			</ProSidebar>
 		</Box>
