@@ -21,12 +21,13 @@ import MapOutlinedIcon from "@mui/icons-material/Map";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
 	const theme = useTheme();
-	const colors = tokens(theme.pallete.mode);
+	const colors = tokens(theme.palette.mode);
 	return (
 		<MenuItem
 			active={selected === title}
 			style={{ color: colors.grey[100] }}
 			onClick
+			icon={icon}
 		>
 			<Typography>{title}</Typography>
 			<Link to={to} />
