@@ -1,5 +1,5 @@
 import { Typography, Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettings";
@@ -91,7 +91,11 @@ const Team = () => {
 					}
 				}}
 			>
-				<DataGrid rows={mockDataTeam} columns={columns} />
+				<DataGrid
+					rows={mockDataTeam}
+					columns={columns}
+					components={{ Toolbar: GridToolbar }}
+				/>
 			</Box>
 		</Box>
 	);
