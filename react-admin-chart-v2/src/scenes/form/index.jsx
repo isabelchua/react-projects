@@ -1,4 +1,4 @@
-import { Box, Button, Textfield } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -29,7 +29,7 @@ const userSchema = yup.object().shape({
 });
 
 const Form = () => {
-	const inNonMobile = useMediaQuery("(min-width:600px)");
+	const isNonMobile = useMediaQuery("(min-width:600px)");
 
 	const handleFormSubmit = values => {
 		console.log(values);
@@ -63,7 +63,7 @@ const Form = () => {
 								}
 							}}
 						>
-							<Textfield
+							<TextField
 								fullWidth
 								variant="filled"
 								type="text"
@@ -76,7 +76,7 @@ const Form = () => {
 								helperText={touched.firstName && errors.firstName}
 								sx={{ gridColumn: "span 2" }}
 							/>
-							<Textfield
+							<TextField
 								fullWidth
 								variant="filled"
 								type="text"
@@ -89,7 +89,7 @@ const Form = () => {
 								helperText={touched.lastName && errors.lastName}
 								sx={{ gridColumn: "span 2" }}
 							/>
-							<Textfield
+							<TextField
 								fullWidth
 								variant="filled"
 								type="text"
@@ -102,7 +102,7 @@ const Form = () => {
 								helperText={touched.email && errors.email}
 								sx={{ gridColumn: "span 4" }}
 							/>
-							<Textfield
+							<TextField
 								fullWidth
 								variant="filled"
 								type="text"
@@ -115,7 +115,7 @@ const Form = () => {
 								helperText={touched.contact && errors.contact}
 								sx={{ gridColumn: "span 4" }}
 							/>
-							<Textfield
+							<TextField
 								fullWidth
 								variant="filled"
 								type="text"
@@ -128,7 +128,7 @@ const Form = () => {
 								helperText={touched.address1 && errors.address1}
 								sx={{ gridColumn: "span 4" }}
 							/>
-							<Textfield
+							<TextField
 								fullWidth
 								variant="filled"
 								type="text"
