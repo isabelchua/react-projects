@@ -29,7 +29,8 @@ const Calendar = () => {
 			calendarApi.addEvent({
 				id: `${selected.dateStr}-${title}`,
 				title,
-				start: selected.endStr,
+				start: selected.startStr,
+				end: selected.endStr,
 				allDay: selected.allDay
 			});
 		}
@@ -47,7 +48,7 @@ const Calendar = () => {
 
 	return (
 		<Box m="20px">
-			<Header title="CALENDAR" subtitle="Full Calenday Interactive Page" />
+			<Header title="Calendar" subtitle="Full Calendar Interactive Page" />
 
 			<Box display="flex" justifyContent="space-between">
 				{/* CALENDAR SIDEBAR */}
@@ -73,18 +74,19 @@ const Calendar = () => {
 									secondary={
 										<Typography>
 											{formatDate(event.start, {
-												year: "nurmeric",
+												year: "numeric",
 												month: "short",
-												day: "numberic"
+												day: "numeric"
 											})}
 										</Typography>
 									}
-								></ListItemText>
+								/>
 							</ListItem>
 						))}
 					</List>
 				</Box>
 
+				{/* CALENDAR */}
 				<Box flex="1 1 100%" ml="15px">
 					<FullCalendar
 						height="75vh"
@@ -95,9 +97,9 @@ const Calendar = () => {
 							listPlugin
 						]}
 						headerToolbar={{
-							left: "prev, next today",
+							left: "prev,next today",
 							center: "title",
-							right: "dayGridMonth, timeGridWeek, timeGridDay, listMonth"
+							right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
 						}}
 						initialView="dayGridMonth"
 						editable={true}
@@ -108,8 +110,16 @@ const Calendar = () => {
 						eventClick={handleEventClick}
 						eventsSet={events => setCurrentEvents(events)}
 						initialEvents={[
-							{ id: "1234", title: "All-day event", date: "2022-09-14" },
-							{ id: "4321", title: "Timed Event", date: "2023-03-23" }
+							{
+								id: "12315",
+								title: "All-day event",
+								date: "2022-09-14"
+							},
+							{
+								id: "5123",
+								title: "Timed event",
+								date: "2022-09-28"
+							}
 						]}
 					/>
 				</Box>
